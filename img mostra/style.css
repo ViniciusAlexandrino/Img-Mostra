@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  text-shadow: 0 0 10px #000;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background: #111;
+}
+
+.item {
+  position: relative;
+  flex: calc(100vw / 6) 1 1;
+  background-size: cover;
+  overflow: hidden;
+  filter: saturate(90%);
+  transition: 1s;
+}
+
+.item:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(25deg, rgba(0,0,0,0.2), rgba(0,0,0,0));
+}
+
+.item:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+  animation: borderColor 5s infinite;
+}
+
+.item:hover {
+  flex-basis: 40%;
+  filter: saturate(120%);
+}
+
+.item:nth-child(1) {
+  background-image: url("assets/gabogo.jpg");
+  background-position: 72% 35%;
+}
+
+.item:nth-child(2) {
+  background-image: url("assets/bh.jpg");
+  background-position: 60% 8%;
+}
+
+.item:nth-child(3) {
+  background-image: url("assets/arrascaeta.jpg");
+  background-position: 52% 8%;
+}
+
+.item:nth-child(4) {
+  background-image: url("assets/gerson.jpg");
+  background-position: 45% 8%;
+}
+
+.item:nth-child(5) {
+  background-image: url("assets/airto.webp");
+  background-position: 45% 25%;
+}
+
+.item:nth-child(6) {
+  background-image: url("assets/rossi.jpg");
+  background-position: 65% 2%;
+}
+
+@keyframes borderColor {
+  0%,
+  100% {
+    border-color: rgba(235, 235, 255, 1);
+  }
+
+  25%,
+  75% {
+    border-color: rgba(235, 235, 255, 0.9);
+  }
+
+  50% {
+    border-color: rgba(235, 235, 255, 0.9);
+  }
+}
+
+@media(min-width: 1024px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .item:not(:last-child) {
+    border-right: 1px solid #ccc;
+    border-bottom: none;
+  }
+
+  .item:hover {
+    flex-basis: 75%;
+  }
+}
+
